@@ -1,0 +1,12 @@
+{
+  "atac.title": "Bdor_MO",
+  "atac.genome_tsv": "/path/to/Bdor.tsv",
+  "atac.paired_end": true,
+  "atac.fastqs_rep1_R1": ["/path/to/Bd_MO.Cleandata.R1.fq.gz"],
+  "atac.fastqs_rep1_R2": ["/path/to/Bd_MO.Cleandata.R2.fq.gz"],
+  "atac.auto_detect_adapter": true,
+  "atac.cap_num_peak": 300000,
+  "atac.pval_thresh": 0.01,
+  "atac.enable_idr": true,
+  "atac.idr_thresh": 0.05
+}

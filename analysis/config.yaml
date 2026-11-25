@@ -1,0 +1,54 @@
+# All input locations used by the reproduction scripts. Edit this file (only) to run on another machine.
+# Paths are absolute; `out` is relative to this file's directory.
+out: "."                                 # results/, figures/, logs/ are created here
+threads: 15
+
+species: [Bcor, Bdor, Bmin, Zcuc, Ztau]   # order used in tables
+abbrev:  {Bcor: Bc, Bdor: Bd, Bmin: Bm, Zcuc: Zc, Ztau: Zt}
+latin:   {Bcor: correcta, Bdor: dorsalis, Bmin: minax, Zcuc: cucurbitae, Ztau: tau}
+generalists: [Bc, Bd, Zc, Zt]
+specialist: Bm
+
+# ---- bulk RNA-seq -------------------------------------------------------------------------------------
+reads_lists: /path/to/project/analysis           # <Species>.reads.R1.list / .R2.list
+cds_fasta:   /path/to/project/analysis           # <Species>.cds.fa (one CDS per gene; kallisto index)
+genesets:    /path/to/data/genesets                  # genome .fa + annotation (.gtf/.gff) per species
+kallisto_gene: /path/to/data/genesets/bactrocera/kallisto/results/mashR/kallisto_results   # existing gene-level kallisto output (-b 100)
+orthologues: /path/to/data/genesets/bactrocera/kallisto/results/mashR/bactrocera_orthologues.txt   # 9,801 1:1 orthogroups (RBH)
+fly_names:   /path/to/data/genesets/bactrocera/kallisto/results/mashR/Bdor-fly.genenames.txt
+published_patterns: /path/to/data/Gr28b/method/RNAseq   # <Tissue>/DEG.patterns, merged.mashR.beta (published run)
+fig1c_tpm:   /path/to/data/genesets/bactrocera/orthologue/new/gene_expression_wide_output.txt
+# label correction found by expression-based identity check (R/01): raw directory -> true sample
+relabel: {Bc-MM-L1: Bc-MM-M1, Bc-MM-L2: Bc-MM-M2, Bc-MM-L3: Bc-MM-M3, Bc-MM-M1: Bc-MM-L1, Bc-MM-M2: Bc-MM-L2, Bc-MM-M3: Bc-MM-L3}
+
+# ---- B. tsuneonis public RNA-seq (baseline only) ---------------------------------------------------------
+btsu_reads: /path/to/data/genesets/Btsu/RNAseq
+btsu_cds:   /path/to/data/genesets/Btsu.cds.fa
+btsu_kallisto: /path/to/project/work/results/kallisto_Btsu   # output of shell/02 (one folder per sample)
+isoform_dir: /path/to/project/work/results/isoform_v2      # output of shell/03a + shell/03 (ref/, kallisto/)
+gr28b_reannotation: /path/to/data/genesets   # Gr28b re-annotation 2026-11-04 (Bcor, Btau, Btsu OGS/)
+
+# ---- snRNA-seq (B. dorsalis ovipositor) ----------------------------------------------------------------
+snrna_matrix:  /path/to/data/scRNA/raw_matrix/analysis/OV        # CellRanger v8 filtered matrix
+snrna_seurat:  /path/to/data/scRNA/raw_matrix/analysis/AjOvi-v1-SCT.rds   # published object (QC + DoubletFinder singlets)
+
+# ---- ATAC-seq (ENCODE ATAC v2.2 outputs) and Hi-C (Juicer -> HiCExplorer outputs) -----------------------
+atac_root: /public_data/ATAC-seq/deprecate
+atac:
+  Bdor_MO: Bdor/Wuhan/Mo
+  Bdor_NO: Bdor/Wuhan/No
+  Bmin_MO: Bmin/run_Bmin
+hic_root: /path/to/data/Hic       # <Species>/results_hicexplorer/{<res>/..., *.bigwig, *.gtf, synteny BED}
+
+# ---- comparative genomics -------------------------------------------------------------------------------
+gr_tree:      /path/to/data/genesets/fly/blast/tree      # Gr.mafft.tre (FastTree), filter.GR.aln.fas
+phylogenomics: /path/to/data/genesets/bactrocera/orthologue/ncbi   # diamond/fasta/*.muscle, species_tree/, hyphy/
+dmel_gr28b_uniprot: Q9VM08                 # isoforms A-E (downloaded once by R/26)
+
+# ---- functional annotation (for GO/KEGG enrichment) ------------------------------------------------------
+go_annotation:   /path/to/data/genesets/bactrocera/plot/enrich/go.txt     # Bdor gene -> GO id
+kegg_annotation: /path/to/data/genesets/bactrocera/plot/enrich/kegg.txt   # Bdor gene -> KO id
+
+# ---- manuscript (for the tracked-change copies) ---------------------------------------------------------
+paper_dir:   /path/to/project/paper
+revised_dir: /path/to/project/paper_revised

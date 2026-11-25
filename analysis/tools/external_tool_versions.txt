@@ -1,0 +1,12 @@
+# external tool versions used (recorded 2026-11-03)
+kallisto   kallisto, version 0.51.1
+gffread    0.12.7
+mafft      v7.526 (2024/Apr/26)
+trimal     trimAl v1.4.rev15 build[2013-12-17]
+iqtree     IQ-TREE multicore version 1.6.12 for Linux 64-bit built Aug 15 2019
+FastTree   Detailed usage for FastTree 2.1.11 SSE3:
+hyphy      HYPHY 2.5.96(MP) for Linux on x86_64 x86 SSE4 SIMD zlib (v1.3.1)
+samtools   samtools 1.17
+ENCODE ATAC-seq pipeline v2.2.3 (caper); outputs reused
+CellRanger v8.0; filtered feature-barcode matrix reused
+Juicer/juicer_tools + HiCExplorer; .hic/.cool outputs reused

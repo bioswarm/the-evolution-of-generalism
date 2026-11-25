@@ -1,0 +1,13 @@
+# Data and generated outputs
+data/
+outputs/
+test_outputs/
+Rplots.pdf
+.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+*.pyc
+.DS_Store
+*.tmp
+logs/
